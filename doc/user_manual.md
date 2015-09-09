@@ -2,8 +2,6 @@
 
 This user manual will walk through the structure of the blog out and how to use it.
 
-Key rule: If it looks like a link, smells like a link, walks like a link, then it probably is a link, and that probably means that it is a link to either a blog post, or a certain technique that was used.
-
 ## Layout Structure
 
 All pages inherit the base blog layout. This layout has a few elements that stay concistent throughout all pages:
@@ -41,4 +39,4 @@ The front-end of your blog will consist of 4 pages (see list below):
 * The Techniques Page (`/techniques`)
   * Contains a list of all techniques used throughout all projects, followed by a list of all project that use that certain technique.
   * Clicking a project name will take you to that project's project page.
-  * Clicking a technique name will take you to the list page filtered by the technique you clicked. Why you'd do that is way past me.
+  * Clicking a technique name will take you to the list page filtered by the technique you clicked.
