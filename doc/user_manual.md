@@ -40,3 +40,17 @@ The front-end of your blog will consist of 4 pages (see list below):
   * Contains a list of all techniques used throughout all projects, followed by a list of all project that use that certain technique.
   * Clicking a project name will take you to that project's project page.
   * Clicking a technique name will take you to the list page filtered by the technique you clicked.
+
+## Searching and Filtering
+
+The list page contains a form to request blog posts matching your search and filtering criteria. Once requested the server will retrieve all matches, sort them, and then send them back to you. To do this you'd have to fill out the search and filtering form.
+
+The form itself is divied up in two sections where the first section filters results based on selected techniques (checkboxes), and where the second section lets you select a sorting method and search by blog posts by text. This is roughly what the form looks like:
+
+![](http://i.imgur.com/alI9klf.png)
+
+Checking the `Any` radio button and one or more techniques would match and return all blog posts that uses **any** of the selected techniques. Similarly, checking the `All` radio button and one or more techniques would match and return all blog posts that uses **all** of the selected techniques.
+
+These posts may then be sorted by date using the dropdown list and choosing either `Ascending` or `Decending`.
+
+Additionaly, there is a text search box if you'd rather prefer that.
