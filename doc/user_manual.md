@@ -24,8 +24,6 @@ The front-end of your blog will consist of 4 pages (see list below):
 * The List Page (`/list`)
   * Contains a list of all projects where each row consists of the following information:
     * The project name.
-    * **The project date?**
-    * **Technique tags?**
     * An image from the post.
     * A short description.
   * Has search functionality for filtering by text and techniques (any or all of the selected) with functions for sorting (ascending or decending date).
