@@ -20,7 +20,7 @@ The front-end of your blog will consist of 4 pages (see list below):
 
 * The Startpage (`/`)
   * Contains a "featured" post.
-  * **This page should look identical to a project page?**
+  * This page should look about the same as a project page.
 * The List Page (`/list`)
   * Contains a list of all projects where each row consists of the following information:
     * The project name.
