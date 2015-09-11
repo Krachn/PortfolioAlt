@@ -5,6 +5,7 @@ This user manual will walk through the structure of the blog out and how to use 
 ## Layout Structure
 
 All pages inherit the base blog layout. This layout has a few elements that stay concistent throughout all pages:
+
 * The sidebar, which contains information **about** the webpage. The sidebar has:
   * A picture of the blog owner.
   * Short info about the owner.
