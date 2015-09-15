@@ -1,5 +1,6 @@
 import json
 
+
 def load(filename):
     try:
         with open(filename) as file:
@@ -7,8 +8,10 @@ def load(filename):
     except FileNotFoundError:
         return None
 
+
 def get_project_count(db):
     return len(db)
+
 
 def get_project(db, id):
     for project in db:
@@ -16,10 +19,12 @@ def get_project(db, id):
             return project
     return None
 
+
 def has_techniques(project, techniques):
     if techniques == None: return True
     project_techniques = set(project['techniques_used'])
     return set(techniques) <= project_techniques
+
 
 def search_parameter_in_field(project, fields, search_parameter):
     if search_parameter == None: return True
@@ -35,6 +40,7 @@ def search_parameter_in_field(project, fields, search_parameter):
                 pass
     return False
 
+
 def search(db, sort_by = 'start_date', sort_order = 'desc', techniques = None, search = None, search_fields = 0):
     filtered_projects = []
 
@@ -46,11 +52,13 @@ def search(db, sort_by = 'start_date', sort_order = 'desc', techniques = None, s
 
     return filtered_projects
 
+
 def get_techniques(db):
     techniques = []
     for project in db:
         techniques.extend(project['techniques_used'])
     return sorted(list(set(techniques)))
+
 
 def get_technique_stats(db):
     technique_stats = {}
