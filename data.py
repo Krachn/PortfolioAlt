@@ -1,8 +1,4 @@
-# -*- coding: UTF-8 -*-
-
-from io import StringIO
 import json
-import pprint
 
 def load(filename):
     try:
@@ -46,8 +42,6 @@ def search(db, sort_by = 'start_date', sort_order = 'desc', techniques = None, s
     filtered_projects = []
 
     for project in db:
-        pprint.pprint(project)
-        print(has_techniques(project, techniques) and search_parameter_in_field(project, search_fields, search))
         if has_techniques(project, techniques) and search_parameter_in_field(project, search_fields, search):
             filtered_projects.append(project)
 
