@@ -2,13 +2,10 @@ import json
 
 def load(filename):
     try:
-        file = open(filename)
+        with open(filename) as file:
+            return json.loads(file.read())
     except FileNotFoundError:
         return None
-
-    data = json.loads(file.read())
-    file.close()
-    return data
 
 def get_project_count(db):
     return len(db)
