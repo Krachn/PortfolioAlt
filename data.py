@@ -1,12 +1,15 @@
 import json
-
+import pprint
 
 def load(filename):
     try:
         with open(filename) as file:
-            return json.loads(file.read())
+            unsorted_json = json.loads(file.read())
+            sorted_json = sort(unsorted_json)
+            return sorted_json
     except FileNotFoundError:
         return None
+    
 
 
 def get_project_count(db):
@@ -52,10 +55,12 @@ def search(db, sort_by='start_date', sort_order='desc', techniques=None, search=
         if has_techniques(project, techniques) and search_parameter_in_field(project, search_fields, search):
             filtered_projects.append(project)
 
-    filtered_projects = sorted(filtered_projects, key=lambda x: x[sort_by], reverse=sort_order == 'desc')
+    filtered_projects = sort(filtered_projects, sort_by, sort_order)
 
     return filtered_projects
 
+def sort(db, sort_by='project_no',sort_order='desc'):
+	return sorted(db, key=lambda x: x[sort_by], reverse=sort_order == 'desc')
 
 def get_techniques(db):
     techniques = []
