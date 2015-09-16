@@ -48,8 +48,6 @@ The form itself is divied up in two sections where the first section filters res
 
 ![](http://i.imgur.com/alI9klf.png)
 
-Checking the `Any` radio button and one or more techniques would match and return all blog posts that uses **any** of the selected techniques. Similarly, checking the `All` radio button and one or more techniques would match and return all blog posts that uses **all** of the selected techniques.
-
 These posts may then be sorted by date using the dropdown list and choosing either `Ascending` or `Decending`.
 
 Additionaly, there is a text search box if you'd rather prefer that.
