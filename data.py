@@ -1,5 +1,5 @@
 import json
-import pprint
+
 
 def load(filename):
     """
@@ -14,6 +14,7 @@ def load(filename):
             return sorted_json
     except FileNotFoundError:
         return None
+
 
 def get_project_count(db):
     """
