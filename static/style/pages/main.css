@@ -1,0 +1,19 @@
+/* Test rule: */
+* {
+}
+
+/* Placeholder color (we may use an even lighter grey in the future): */
+body {
+    background-color: #F8F8F8;
+}
+
+.owner-info img {
+    width: 200px;
+}
+
+/*  */
+nav ul {
+    padding-left: 20px;
+    list-style-type: none;
+    border-left: 3px solid #C8C8C8;
+}
