@@ -11,6 +11,11 @@ body {
     width: 200px;
 }
 
+aside{
+	float: left;
+	margin-right: 20px;
+}
+
 /*  */
 nav ul {
     padding-left: 20px;
