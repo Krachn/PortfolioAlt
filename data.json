@@ -1,0 +1,62 @@
+[
+  {
+	"start_date": "2015-08-30",
+	"short_description": "Utveckling av ett portföljsystem",
+	"course_name": "TDP003 Egen datormiljö",
+	"long_description": "Jag utvecklade ett system för att i text och bild beskriva olika projekt användaren av systemet genomfört. Systemet är generellt användbart inom många områden. Det kan användas som galleri för en konstnär, produktportfölj för en snickare, skrytvägg för en advokat eller i mitt fall som komplement till CV för potentiella arbetsgivare. Systemet har fyra huvudskliga sidor: en huvudsida med information om portföljägaren, en sida som listar alla produkter/projekt i portföljen, en sida som listar alla tekniker som portföljagaren använt, och i vilket projekt. Detta ger en bra bild över den teknik portföljägaren behärskar, samt en sida som tillåter sökning och filtrering a projekt.",
+	"group_size": 2,
+	"academic_credits": "6",
+	"lulz_had": "4711",
+	"external_link": "https://en.wikipedia.org/wiki/Artist%27s_portfolio",
+	"small_image": "http://progressions.prssa.org/wp-content/uploads/2013/02/portfolio-icon.gif",
+	"techniques_used": [
+	    "python",
+	    "json",
+	    "html",
+	    "css",
+            "jinja",
+            "flask",
+            "git",
+            "latex",
+            "gimp"
+	],
+        "linkbacks": [
+            "https://en.wikipedia.org/wiki/Linkback",
+            "https://gitlab.ida.liu.se/klaar36/tdp003-portfolio-example-data",
+            "https://www.ida.liu.se/~TDP003/"
+        ],
+	"project_name": "Portfolio",
+	"course_id": "TDP003",
+	"end_date": "2014-10-20",
+	"project_no": 1,
+	"big_image": "http://sites.psu.edu/zhenyangli/wp-content/uploads/sites/28301/2015/06/Portfolio-image.gif"
+    },
+    {
+	"start_date": "2015-11-02",
+	"short_description": "Hornet Pong",
+	"course_name": "TDP005 Projekt: Objektorienterat system",
+	"long_description": "Vi utvecklade det objektorienterade spelet Hornet Ping Pong som är en kul variant av klassiska Pong. I spelet är bollen utbytt mot en bålgeting som ska bollas över till motspelaren, men bara om om den kommer med huvudet först. Kommer den med taggen först gäller det att akta sig. Genom att träffa med sidfart kan spelarna sätta skruv på getingen för att göra det mer besvärligt för motståndaren.",
+	"group_size": 2,
+	"academic_credits": "6",
+	"lulz_had": "1",
+	"external_link": "",
+	"small_image": "",
+	"techniques_used": [
+	    "c++",
+	    "sdl",
+	    "stl",
+	    "object-orientation",
+            "gimp",
+            "git",
+            "latex"
+	],
+        "linkbacks": [
+            "https://www.ida.liu.se/~TDP005/"
+        ],
+	"project_name": "Hornet Pong",
+	"course_id": "TDP003",
+	"end_date": "2014-12-18",
+	"project_no": 2,
+	"big_image": ""
+  }    
+]
