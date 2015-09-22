@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Teknik-lista:</h1>
+	{% for technique_name, projects_list in techniques.iteritems() %}
+		<p>
+		{% include 'technique.html' %}
+		</p>
+	{% endfor %}
+{% endblock %}

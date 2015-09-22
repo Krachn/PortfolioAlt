@@ -21,6 +21,12 @@ def list_page():
 	result_list = data.search(db)
 	return render_template('list.html', project_list = result_list)
 
+@app.route('/techniques')
+def technique_page():
+	db = data.load("data.json")
+	result_dict = data.get_technique_stats(db)
+	return render_template('techniques.html', techniques = result_dict)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
