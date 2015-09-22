@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Projektlista:</h1>
+	{% for project_data in project_list %}
+		<p>
+		{% include 'project-item.html' %}
+		</p>
+	{% endfor %}
+{% endblock %}
