@@ -1,0 +1,15 @@
+<form action="list", method="post">
+	<div class='searchbox'>
+		<h1>Söklåda</h1>
+		{% for technique in techniques %}
+			<input type="checkbox" name = "technique", value= {{ technique }}> {{ technique }}
+		{% endfor %}
+		<br>
+	    <select name="sort_order">
+	    	<option value="asc">Ascending</option>
+			<option value="desc">Descending</option>
+		</select>
+		fritextsökning : <input type="text" name="free_text_search">
+		<input type="submit" value="Sök">
+	</div>
+</form>

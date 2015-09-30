@@ -60,11 +60,15 @@ def search_parameter_in_field(project, fields, search_parameter):
     :param search_parameter: The parameter to search for.
     :return: True if the search parameter can be found in any of the fields, otherwise False.
     """
+    print("parameter: " + str(search_parameter))
+    search_fields = fields
     if search_parameter is None:
         return True
-    for field in fields:
+    if search_fields is None:
+        search_fields = project.keys()
+    for field in search_fields:
         field_value = project[field]
-        if isinstance(field_value, str):
+        if isinstance(field_value, unicode):
             if search_parameter.lower() in field_value.lower():
                 return True
         elif isinstance(field_value, int):
@@ -77,7 +81,7 @@ def search_parameter_in_field(project, fields, search_parameter):
     return False
 
 
-def search(db, sort_by='start_date', sort_order='desc', techniques=None, search=None, search_fields=0):
+def search(db, sort_by='start_date', sort_order='desc', techniques=None, search=None, search_fields=None):
     """
     Fetches and sorts projects matching criteria from the specified list.
     :param db: A list as returned by load.
