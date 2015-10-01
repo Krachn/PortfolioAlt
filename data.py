@@ -60,7 +60,6 @@ def search_parameter_in_field(project, fields, search_parameter):
     :param search_parameter: The parameter to search for.
     :return: True if the search parameter can be found in any of the fields, otherwise False.
     """
-    print("parameter: " + str(search_parameter))
     search_fields = fields
     if search_parameter is None:
         return True
@@ -68,7 +67,7 @@ def search_parameter_in_field(project, fields, search_parameter):
         search_fields = project.keys()
     for field in search_fields:
         field_value = project[field]
-        if isinstance(field_value, unicode) or isinstance(field_value,str):
+        if isinstance(field_value,str):
             if search_parameter.lower() in field_value.lower():
                 return True
         elif isinstance(field_value, int):

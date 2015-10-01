@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 	<h1>Teknik-lista:</h1>
-	{% for technique_name, projects_list in techniques.iteritems() %}
+	{% for technique_name, projects_list in techniques.items() %}
 		<p>
 		{% include 'technique.html' %}
 		</p>
