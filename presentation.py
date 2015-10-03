@@ -23,20 +23,25 @@ def list_page():
 	techniques = data.get_technique_stats(db)
 	if request.method == 'POST':
 
-		technique_list = request.form.getlist('technique')
-		order = request.form['sort_order']
-		free_text_search = request.form['free_text_search']
-		if free_text_search == '':
-			free_text_search = None
-		search_results = data.search(full_list, techniques=technique_list,
-												sort_order=order,
-												search = free_text_search)
+		requested_technique_list = request.form.getlist('technique')
+		requested_order = request.form['sort_order']
+		requested_free_text_search = request.form['free_text_search']
+		if requested_free_text_search == '':
+			requested_free_text_search = None
+		search_results = data.search(full_list, techniques=requested_technique_list,
+												sort_order=requested_order,
+												search = requested_free_text_search)
 
-		return render_template('list.html', project_list=search_results, techniques = techniques.keys()) 
+		return render_template('list.html', project_list=search_results,
+											previous_freetext_search= requested_free_text_search or '',
+											previous_techniques =requested_technique_list,
+											techniques = sorted(techniques.keys())) 
 
 
 	else:
-		return render_template('list.html', project_list = full_list, techniques = techniques.keys())
+		return render_template('list.html', project_list = full_list, 
+											techniques = techniques.keys())
+
 
 @app.route('/techniques')
 def technique_page():
