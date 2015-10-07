@@ -16,6 +16,7 @@ def main_page():
 	example_project = data.search(db)[0]
 	return render_template('main.html', project_data = example_project)
 
+
 @app.route('/list', methods=['POST','GET'])
 def list_page():
 	db = data.load("data.json")
@@ -48,6 +49,12 @@ def technique_page():
 	db = data.load("data.json")
 	result_dict = data.get_technique_stats(db)
 	return render_template('techniques.html', techniques = result_dict)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html", non_existent_url = request.path)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
