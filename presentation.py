@@ -9,9 +9,16 @@ from flask import request
 app = Flask(__name__)
 
 
-
 @app.route('/')
 def main_page():
+	"""
+	Using the datalayer, jinja2, and the main.html template this function
+	returns the main page of the portfolio to whoever sent the request.
+
+	This function is called when the URL '/' is requested
+
+	:return: The main page HTML of our portfolio. 
+	"""
 	db = data.load("data.json")
 	example_project = data.search(db)[0]
 	return render_template('main.html', project_data = example_project)
@@ -19,6 +26,18 @@ def main_page():
 
 @app.route('/list', methods=['POST','GET'])
 def list_page():
+	"""
+	Using the datalayer, jinja2, and the list.html template this function
+	EITHER returns the default list page (containing all the projects) OR
+	if it has been requested using a POST it instead returns the list page
+	containing a list of projects that fit the search parameters contained
+	in the POST.
+
+	This function is called when the URL '/list' is requested
+
+	:return: The list page of our portfolio(containing all or some projects from
+			the datalayer). 
+	"""
 	db = data.load("data.json")
 	full_list = data.search(db)
 	techniques = data.get_technique_stats(db)
@@ -45,6 +64,15 @@ def list_page():
 
 @app.route('/techniques')
 def technique_page():
+	"""
+	Using the datalayer, jinja2, and the techniques.html template this function
+	returns the techniques page of the portfolio populated with all the techniques
+	found in our datalayer to whoever sent the request.
+
+	This function is called when the URL '/techniques' is requested
+
+	:return: The techniques page of our portfolio. 
+	"""
 	db = data.load("data.json")
 	result_dict = data.get_technique_stats(db)
 	return render_template('techniques.html', techniques = result_dict)
@@ -52,6 +80,15 @@ def technique_page():
 
 @app.errorhandler(404)
 def page_not_found(e):
+	"""
+	Using the datalayer, jinja2, and the 404.html template this function
+	returns a basic page informing the user that a 404 error occured
+
+	This function is called when the server can't find a page fitting the requested
+	URL(404).
+
+	:return: A basic 404 information page. 
+	"""
     return render_template("404.html", non_existent_url = request.path)
 
 
