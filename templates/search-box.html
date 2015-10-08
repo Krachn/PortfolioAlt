@@ -4,9 +4,9 @@
 		<ul>
 			{% for technique in techniques %}
 				{% if technique in previous_techniques%}
-					<span><input type="checkbox" name = "{{ technique }}", value= {{ technique }} checked> <label for="{{ technique }}">{{ technique }}</label></span>
+					<span><input type="checkbox" name = "technique", value= {{ technique }} checked> {{ technique }}</span>
 				{% else %}
-					<span><input type="checkbox" name = "{{ technique }}", value= {{ technique }}> <label for="{{ technique }}">{{ technique }}</label></span>
+					<span><input type="checkbox" name = "technique", value= {{ technique }}>{{ technique }}</span>
 				{% endif %}
 			{% endfor %}
 		<ul>

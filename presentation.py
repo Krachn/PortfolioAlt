@@ -23,7 +23,6 @@ def list_page():
 	full_list = data.search(db)
 	techniques = data.get_technique_stats(db)
 	if request.method == 'POST':
-
 		requested_technique_list = request.form.getlist('technique')
 		requested_order = request.form['sort_order']
 		requested_free_text_search = request.form['free_text_search']
@@ -32,8 +31,8 @@ def list_page():
 		search_results = data.search(full_list, techniques=requested_technique_list,
 												sort_order=requested_order,
 												search = requested_free_text_search)
-
-		return render_template('list.html', project_list=search_results,
+		print("happening")
+		return render_template('list.html', project_list=search_results, 
 											previous_freetext_search= requested_free_text_search or '',
 											previous_techniques =requested_technique_list,
 											techniques = sorted(techniques.keys())) 
