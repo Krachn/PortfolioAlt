@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 import data
+import logging
+from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -8,6 +10,50 @@ from flask import request
 
 app = Flask(__name__)
 
+
+logg_file = "server.log"
+
+
+@app.before_request
+def request_logging():
+	"""
+	This function logs each request the server gets.
+
+	This function is called before each request is handled.
+	"""
+	app.logger.info("Request: " + str(request) +" Form data: "+str(dict((key, request.form.getlist(key)) for key in request.form.keys())))
+
+@app.errorhandler(500)
+	"""
+	Using the datalayer, jinja2, and the 500.html template this function
+	returns a basic page informing the user that a 500 error occured
+
+	It also adds alot of usefull information to the logg to help with debuging.
+
+	This function is called when there is an internal server error(400)
+
+	:return: A basic 500 information page. 
+	"""
+def internal_error(e):
+	app.logger.error(
+            """
+Request:   {method} {path}
+IP:        {ip}
+Agent:     {agent_platform} | {agent_browser} {agent_browser_version}
+Raw Agent: {agent}
+Form Data: {form_data}
+            """.format(
+                method = request.method,
+                path = request.path,
+                ip = request.remote_addr,
+                agent_platform = request.user_agent.platform,
+                agent_browser = request.user_agent.browser,
+                agent_browser_version = request.user_agent.version,
+                agent = request.user_agent.string,
+                form_data = str(dict((key, request.form.getlist(key)) for key in request.form.keys()))
+            )
+        )
+	return render_template('500.html')
 
 @app.route('/')
 def main_page():
@@ -50,7 +96,7 @@ def list_page():
 		search_results = data.search(full_list, techniques=requested_technique_list,
 												sort_order=requested_order,
 												search = requested_free_text_search)
-		print("happening")
+
 		return render_template('list.html', project_list=search_results, 
 											previous_freetext_search= requested_free_text_search or '',
 											previous_techniques =requested_technique_list,
@@ -89,9 +135,10 @@ def page_not_found(e):
 
 	:return: A basic 404 information page. 
 	"""
-    return render_template("404.html", non_existent_url = request.path)
+	return render_template("404.html", non_existent_url = request.path)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.logger.setLevel(0)
+	app.run(debug=True)
 

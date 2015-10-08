@@ -15,6 +15,7 @@ To further understand how this works, please look at the following UML diagram. 
 This is how functions in the presentation layer work:
 
 Flask handels most of the heavy lifting for us, including handling what request get sent to what function. Our functions (and when they are called by Flask) are as follows:
+* `request_logging()`: Gets called BEFORE each request to the server is handheld. Its function is to logg each request to the server.
 * `main_page()`: Gets called when the URL `/` is requested. Using the datalayer, Jinja2, and the `main.html` template this function returns the main page of the portfolio to whoever sent the request.
 * `list_page()`: Gets called when the URL `/list` is requested. Using the datalayer, Jinja2, and the `list.html` template this function EITHER returns the default list page (containing all the projects) OR if it has been requested using a `POST` it instead returns the list page containing a list of projects that fit the search parameters contained in the `POST` request.
 * `technique_page()`: Gets called when the  URL `/techniques` is requested. Using the datalayer, Jinja2, and the `techniques.html` template this function returns the techniques page of the portfolio populated with all the techniques found in our datalayer to whoever sent the request.
@@ -25,5 +26,10 @@ We also have a bit of error handling...
 
 Again, Flask does all the heavy lifting here, and using the same method as for the normal pages we can specify what error calls what function:
 * `page_not_found(e)`: This function gets called when flask detects `404` error. Using the datalayer, Jinja2, and the `404.html` template this function returns a basic page informing the user that a `404` error occured. This function is called when the server can't find a page fitting the requested URL (`404`).
+* `internal_error(e)`: This function gets called when flask detects `500` error. Using the datalayer, Jinja2, and the `500.html` template this function returns a basic page informing the user that a `500` error occured.
+It also adds alot of usefull information to the logg to help with debuging.
+This function is called when there is an internal server error(`500`)
+
+
 
 The system was built to comply with this [system specification](https://www.ida.liu.se/~TDP003/current/resources/TDP003_systemspecifikation.pdf), and additionally, all functions in the data layer are documented very well. If you have any doubts what so ever, reading the documented code will be of great help to you.
