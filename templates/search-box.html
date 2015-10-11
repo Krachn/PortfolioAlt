@@ -11,11 +11,13 @@
             {% endfor %}
         </ul>
         <br>
-        <select name="sort_order">
+        <label for="sort_order">Sort Order:</label>
+        <select id="sort_order" name="sort_order">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
-        Text search : <input type="text" name="free_text_search" value= "{{ previous_freetext_search }}" >
-        <input type="submit" value="Sök">
+        <label for="text_search">Text Search:</label>
+        <input id="text_search" type="text" name="text_search" value= "{{ previous_text_search }}" >
+        <input type="submit" value="Search">
     </form>
 </div>

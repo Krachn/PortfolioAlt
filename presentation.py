@@ -94,15 +94,15 @@ def list_page():
     if request.method == 'POST':
         requested_technique_list = request.form.getlist('technique')
         requested_order = request.form['sort_order']
-        requested_free_text_search = request.form['free_text_search']
-        if requested_free_text_search == '':
-            requested_free_text_search = None
+        requested_text_search = request.form['text_search']
+        if requested_text_search == '':
+            requested_text_search = None
         search_results = data.search(full_list, techniques=requested_technique_list,
                                      sort_order=requested_order,
-                                     search=requested_free_text_search)
+                                     search=requested_text_search)
 
         return render_template('list.html', project_list=search_results,
-                               previous_freetext_search=requested_free_text_search or '',
+                               previous_text_search=requested_text_search or '',
                                previous_techniques=requested_technique_list,
                                techniques=sorted(techniques.keys()))
 
