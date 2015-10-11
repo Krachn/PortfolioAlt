@@ -6,6 +6,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask
 from flask import render_template
 from flask import request
+from random import choice
 
 app = Flask(__name__)
 
@@ -66,7 +67,7 @@ def main_page():
     :return: The main page HTML of our portfolio.
     """
     db = data.load("data.json")
-    example_project = data.search(db)[0]
+    example_project = choice(data.search(db))
     return render_template('main.html', project_data=example_project)
 
 
