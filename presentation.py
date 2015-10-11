@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import data
 import logging
 from logging.handlers import RotatingFileHandler
@@ -7,9 +7,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 
-
 app = Flask(__name__)
-
 
 log_file = "server.log"
 
@@ -21,7 +19,8 @@ def request_logging():
 
     This function is called before each request is handled.
     """
-    app.logger.info("Request: " + str(request) + " Form data: " + str(dict((key, request.form.getlist(key)) for key in request.form.keys())))
+    app.logger.info("Request: " + str(request) + " Form data: " + str(
+        dict((key, request.form.getlist(key)) for key in request.form.keys())))
 
 
 @app.errorhandler(500)
@@ -37,23 +36,22 @@ def internal_error(e):
     :return: A basic 500 information page.
     """
     app.logger.error(
-            """
+        """
 Request:   {method} {path}
 IP:        {ip}
 Agent:     {agent_platform} | {agent_browser} {agent_browser_version}
 Raw Agent: {agent}
 Form Data: {form_data}
-            """.format(
-                method = request.method,
-                path = request.path,
-                ip = request.remote_addr,
-                agent_platform = request.user_agent.platform,
-                agent_browser = request.user_agent.browser,
-                agent_browser_version = request.user_agent.version,
-                agent = request.user_agent.string,
-                form_data = str(dict((key, request.form.getlist(key)) for key in request.form.keys()))
-            )
-        )
+        """.format(method=request.method,
+                   path=request.path,
+                   ip=request.remote_addr,
+                   agent_platform=request.user_agent.platform,
+                   agent_browser=request.user_agent.browser,
+                   agent_browser_version=request.user_agent.version,
+                   agent=request.user_agent.string,
+                   form_data=str(dict((key, request.form.getlist(key)) for key in request.form.keys()))
+                   )
+    )
     return render_template('500.html')
 
 
@@ -69,10 +67,10 @@ def main_page():
     """
     db = data.load("data.json")
     example_project = data.search(db)[0]
-    return render_template('main.html', project_data = example_project)
+    return render_template('main.html', project_data=example_project)
 
 
-@app.route('/list', methods=['POST','GET'])
+@app.route('/list', methods=['POST', 'GET'])
 def list_page():
     """
     Using the data layer, Jinja2, and the list.html template this function
@@ -96,18 +94,16 @@ def list_page():
         if requested_free_text_search == '':
             requested_free_text_search = None
         search_results = data.search(full_list, techniques=requested_technique_list,
-                                                sort_order=requested_order,
-                                                search = requested_free_text_search)
+                                     sort_order=requested_order,
+                                     search=requested_free_text_search)
 
         return render_template('list.html', project_list=search_results,
-                                            previous_freetext_search= requested_free_text_search or '',
-                                            previous_techniques =requested_technique_list,
-                                            techniques = sorted(techniques.keys()))
-
+                               previous_freetext_search=requested_free_text_search or '',
+                               previous_techniques=requested_technique_list,
+                               techniques=sorted(techniques.keys()))
 
     else:
-        return render_template('list.html', project_list = full_list,
-                                            techniques = techniques.keys())
+        return render_template('list.html', project_list=full_list, techniques=techniques.keys())
 
 
 @app.route('/techniques')
@@ -123,7 +119,7 @@ def technique_page():
     """
     db = data.load("data.json")
     result_dict = data.get_technique_stats(db)
-    return render_template('techniques.html', techniques = result_dict)
+    return render_template('techniques.html', techniques=result_dict)
 
 
 @app.errorhandler(404)
@@ -137,7 +133,7 @@ def page_not_found(e):
 
     :return: A basic 404 information page.
     """
-    return render_template("404.html", non_existent_url = request.path)
+    return render_template("404.html", non_existent_url=request.path)
 
 
 if __name__ == '__main__':
