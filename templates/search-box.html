@@ -1,6 +1,6 @@
 <div class='searchbox'>
     <form action="list", method="post">
-        <h1>Söklåda</h1>
+        <h1>Search</h1>
         <ul>
             {% for technique in techniques %}
                 {% if technique in previous_techniques%}
@@ -15,7 +15,7 @@
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
-        fritextsökning : <input type="text" name="free_text_search" value= "{{ previous_freetext_search }}" >
+        Text search : <input type="text" name="free_text_search" value= "{{ previous_freetext_search }}" >
         <input type="submit" value="Sök">
     </form>
 </div>
