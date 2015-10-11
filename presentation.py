@@ -8,6 +8,8 @@ from flask import render_template
 from flask import request
 from random import choice
 
+from pprint import pprint
+
 app = Flask(__name__)
 
 log_file = "server.log"
@@ -53,7 +55,7 @@ Form Data: {form_data}
                    form_data=str(dict((key, request.form.getlist(key)) for key in request.form.keys()))
                    )
     )
-    return render_template('500.html')
+    return render_template('status_codes/500.html')
 
 
 @app.route('/')
@@ -88,6 +90,7 @@ def list_page():
     db = data.load("data.json")
     full_list = data.search(db)
     techniques = data.get_technique_stats(db)
+
     if request.method == 'POST':
         requested_technique_list = request.form.getlist('technique')
         requested_order = request.form['sort_order']
@@ -134,7 +137,7 @@ def page_not_found(e):
 
     :return: A basic 404 information page.
     """
-    return render_template("404.html", non_existent_url=request.path)
+    return render_template("status_codes/404.html", non_existent_url=request.path)
 
 
 if __name__ == '__main__':
