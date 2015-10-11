@@ -27,12 +27,12 @@ def request_logging():
 @app.errorhandler(500)
 def internal_error(e):
     """
-    Using the datalayer, jinja2, and the 500.html template this function
-    returns a basic page informing the user that a 500 error occured
+    Using the data layer, Jinja2, and the 500.html template this function
+    returns a basic page informing the user that a 500 error occurred.
 
-    It also adds alot of usefull information to the logg to help with debuging.
+    It also adds a lot of useful information to the log to help with debugging.
 
-    This function is called when there is an internal server error(400)
+    This function is called when there is an internal server error(400).
 
     :return: A basic 500 information page.
     """
@@ -60,10 +60,10 @@ Form Data: {form_data}
 @app.route('/')
 def main_page():
     """
-    Using the datalayer, jinja2, and the main.html template this function
+    Using the data layer, Jinja2, and the main.html template this function
     returns the main page of the portfolio to whoever sent the request.
 
-    This function is called when the URL '/' is requested
+    This function is called when the URL '/' is requested.
 
     :return: The main page HTML of our portfolio.
     """
@@ -75,16 +75,16 @@ def main_page():
 @app.route('/list', methods=['POST','GET'])
 def list_page():
     """
-    Using the datalayer, jinja2, and the list.html template this function
+    Using the data layer, Jinja2, and the list.html template this function
     EITHER returns the default list page (containing all the projects) OR
     if it has been requested using a POST it instead returns the list page
     containing a list of projects that fit the search parameters contained
     in the POST.
 
-    This function is called when the URL '/list' is requested
+    This function is called when the URL '/list' is requested.
 
     :return: The list page of our portfolio(containing all or some projects from
-            the datalayer).
+            the data layer).
     """
     db = data.load("data.json")
     full_list = data.search(db)
@@ -113,11 +113,11 @@ def list_page():
 @app.route('/techniques')
 def technique_page():
     """
-    Using the datalayer, jinja2, and the techniques.html template this function
+    Using the data layer, Jinja2, and the techniques.html template this function
     returns the techniques page of the portfolio populated with all the techniques
-    found in our datalayer to whoever sent the request.
+    found in our data layer to whoever sent the request.
 
-    This function is called when the URL '/techniques' is requested
+    This function is called when the URL '/techniques' is requested.
 
     :return: The techniques page of our portfolio.
     """
@@ -129,8 +129,8 @@ def technique_page():
 @app.errorhandler(404)
 def page_not_found(e):
     """
-    Using the datalayer, jinja2, and the 404.html template this function
-    returns a basic page informing the user that a 404 error occured
+    Using the data layer, Jinja2, and the 404.html template this function
+    returns a basic page informing the user that a 404 error occurred.
 
     This function is called when the server can't find a page fitting the requested
     URL(404).
