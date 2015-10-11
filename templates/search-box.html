@@ -1,21 +1,21 @@
 <div class='searchbox'>
-	<form action="list", method="post">
-		<h1>Söklåda</h1>
-		<ul>
-			{% for technique in techniques %}
-				{% if technique in previous_techniques%}
-					<span><input type="checkbox" name = "technique", value= {{ technique }} checked> {{ technique }}</span>
-				{% else %}
-					<span><input type="checkbox" name = "technique", value= {{ technique }}>{{ technique }}</span>
-				{% endif %}
-			{% endfor %}
-		</ul>
-		<br>
-	    <select name="sort_order">
-	    	<option value="asc">Ascending</option>
-			<option value="desc">Descending</option>
-		</select>
-		fritextsökning : <input type="text" name="free_text_search" value= "{{ previous_freetext_search }}" >
-		<input type="submit" value="Sök">
-	</form>
+    <form action="list", method="post">
+        <h1>Söklåda</h1>
+        <ul>
+            {% for technique in techniques %}
+                {% if technique in previous_techniques%}
+                    <span><input type="checkbox" name = "technique", value= {{ technique }} checked> {{ technique }}</span>
+                {% else %}
+                    <span><input type="checkbox" name = "technique", value= {{ technique }}>{{ technique }}</span>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <br>
+        <select name="sort_order">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+        fritextsökning : <input type="text" name="free_text_search" value= "{{ previous_freetext_search }}" >
+        <input type="submit" value="Sök">
+    </form>
 </div>
