@@ -87,7 +87,7 @@ def search(db, sort_by='start_date', sort_order='desc', techniques=None, search=
     :param sort_by: The name of the field to sort by.
     :param sort_order: The order to sort in. 'asc' for ascending, 'desc' for descending.
     :param techniques: List of techniques that projects must have to be returned. An empty list
-           means this field is ignored
+           means this field is ignored.
     :param search: Free text search string.
     :param search_fields: The fields to search for search in. If search_fields is empty, no results are returned.
            If search_fields is None, all fields are searched.
@@ -107,7 +107,7 @@ def sort(db, sort_by='project_no', sort_order='desc'):
     :param db: A list as returned by load.
     :param sort_by: The name of the field to sort by.
     :param sort_order: The order to sort in. 'asc' for ascending, 'desc' for descending.
-    :return: A sorted list of projects
+    :return: A sorted list of projects.
     """
     return sorted(db, key=lambda x: x[sort_by], reverse=sort_order == 'desc')
 
@@ -134,7 +134,7 @@ def get_technique_stats(db):
     * id (int): Project number
     * name (string): Name of the project
 
-    The value of each key is sorted after the id-value of each dict in the list
+    The value of each key is sorted after the id-value of each dict in the list.
 
     :param db: A list as returned by load.
     :return: Technique stats (see above).
