@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-	{% include 'search-box.html' %}
-	<h1>Resultat-lista:</h1>
-	{% for project_data in project_list %}
-		<p>
-		{% include 'project-item.html' %}
-		</p>
-	{% endfor %}
-{% endblock %} 
+    {% include 'search-box.html' %}
+    <h1>Resultat-lista:</h1>
+    {% for project_data in project_list %}
+        <p>
+        {% include 'project-item.html' %}
+        </p>
+    {% endfor %}
+{% endblock %}

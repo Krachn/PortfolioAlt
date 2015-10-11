@@ -1,12 +1,12 @@
 <article>
-	<h2>{{ technique_name }}</h2>
-	{# This part generates some unnecesary whitespaces, needs fix #}
-	{% for project_dict in projects_list %}
-		{{ project_dict.name }}
-		{% if not loop.last %}
-    		,
-		{% else %}
-			.
-		{% endif %}
-	{% endfor %}
+    <h2>{{ technique_name }}</h2>
+    {# This part generates some unnecesary whitespaces, needs fix #}
+    {% for project_dict in projects_list %}
+        {{ project_dict.name }}
+        {% if not loop.last %}
+            ,
+        {% else %}
+            .
+        {% endif %}
+    {% endfor %}
 </article>
