@@ -67,7 +67,7 @@ def search_parameter_in_field(project, fields, search_parameter):
         search_fields = project.keys()
     for field in search_fields:
         field_value = project[field]
-        if isinstance(field_value,str):
+        if isinstance(field_value, str):
             if search_parameter.lower() in field_value.lower():
                 return True
         elif isinstance(field_value, int):
@@ -101,7 +101,7 @@ def search(db, sort_by='start_date', sort_order='desc', techniques=None, search=
     return filtered_projects
 
 
-def sort(db, sort_by='project_no',sort_order='desc'):
+def sort(db, sort_by='project_no', sort_order='desc'):
     """
     Sorts a list of projects by the specified field.
     :param db: A list as returned by load.
