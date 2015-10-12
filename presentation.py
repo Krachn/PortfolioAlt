@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import data
 import logging
-from logging.handlers import RotatingFileHandler
+from logging import FileHandler
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -14,7 +14,6 @@ from pprint import pprint
 app = Flask(__name__)
 
 log_file = "server.log"
-
 
 @app.before_request
 def request_logging():
@@ -167,5 +166,8 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-    app.logger.setLevel(0)
-    app.run(debug=True)
+	file_handler = FileHandler(log_file)
+	file_handler.setLevel(logging.INFO)
+	app.logger.addHandler(file_handler)
+	app.logger.setLevel(logging.INFO)
+	app.run(debug=False)
