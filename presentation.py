@@ -107,7 +107,7 @@ def list_page():
                                techniques=sorted(techniques.keys()))
 
     else:
-        return render_template('list.html', project_list=full_list, techniques=techniques.keys())
+        return render_template('list.html', project_list=full_list, techniques=sorted(techniques.keys()))
 
 
 @app.route('/techniques')
