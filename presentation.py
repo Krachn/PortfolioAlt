@@ -7,6 +7,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from random import choice
+from collections import OrderedDict
 
 from pprint import pprint
 
@@ -123,7 +124,8 @@ def technique_page():
     """
     db = data.load("data.json")
     result_dict = data.get_technique_stats(db)
-    return render_template('techniques.html', techniques=result_dict)
+    sorted_dict = OrderedDict(sorted(result_dict.items(), key=lambda t: t[0].lower()))
+    return render_template('techniques.html', techniques=sorted_dict)
 
 
 @app.errorhandler(404)
