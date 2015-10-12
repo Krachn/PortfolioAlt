@@ -1,0 +1,28 @@
+.search {
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+}
+
+.sort-order {
+    width: 30%;
+    float: left;
+}
+
+.search h3 {
+    color: #34495e;
+    margin: 0;
+}
+
+.search ul {
+    margin-top: 10px;
+}
+
+.search ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.search ul li {
+    display: inline-block;
+    width: 20%;
+}

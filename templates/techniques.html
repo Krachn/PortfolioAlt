@@ -2,8 +2,6 @@
 {% block content %}
     <h1>List of Techniques</h1>
     {% for technique_name, projects_list in techniques.items() %}
-        <p>
         {% include 'elements/technique.html' %}
-        </p>
     {% endfor %}
 {% endblock %}

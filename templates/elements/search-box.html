@@ -1,23 +1,32 @@
-<div class='searchbox'>
-    <form action="list", method="post">
-        <h1>Search</h1>
-        <ul>
-            {% for technique in techniques %}
-                {% if technique in previous_techniques%}
-                    <span><input type="checkbox" name = "technique", value= {{ technique }} checked> {{ technique }}</span>
-                {% else %}
-                    <span><input type="checkbox" name = "technique", value= {{ technique }}>{{ technique }}</span>
-                {% endif %}
-            {% endfor %}
-        </ul>
-        <br>
+<form class="search" action="/list" method="POST">
+    <h3>Search</h3>
+
+    <ul>
+        {% for technique in techniques %}
+            {% if technique in previous_techniques %}
+                <li>
+                    <input type="checkbox" name="technique" value="{{ technique }}" checked>
+                    <span>{{ technique }}</span>
+                </li>
+            {% else %}
+                <li>
+                    <input type="checkbox" name="technique" value={{ technique }}>
+                    <span>{{ technique }}</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="sort-order">
         <label for="sort_order">Sort Order:</label>
         <select id="sort_order" name="sort_order">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
-        <label for="text_search">Text Search:</label>
-        <input id="text_search" type="text" name="text_search" value= "{{ previous_text_search }}" >
-        <input type="submit" value="Search">
-    </form>
-</div>
+    </div>
+
+    <label for="text_search">Text Search:</label>
+    <input id="text_search" type="text" name="text_search" value="{{ previous_text_search }}">
+
+    <input type="submit" value="Search">
+</form>

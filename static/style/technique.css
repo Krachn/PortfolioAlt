@@ -1,0 +1,8 @@
+.technique ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technique ul li {
+    display: inline-block;
+}

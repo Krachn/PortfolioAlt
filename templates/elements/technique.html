@@ -1,12 +1,8 @@
-<article>
+<div class="technique">
     <h2>{{ technique_name }}</h2>
-    {# This part generates some unnecesary whitespaces, needs fix #}
-    {% for project_dict in projects_list %}
-        {{ project_dict.name }}
-        {% if not loop.last %}
-            ,
-        {% else %}
-            .
-        {% endif %}
-    {% endfor %}
-</article>
+    <ul>
+        {% for project_dict in projects_list %}
+            <li>{{ project_dict.name }}</li>
+        {% endfor %}
+    </ul>
+</div>

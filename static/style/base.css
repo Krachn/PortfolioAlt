@@ -1,5 +1,6 @@
 /* Test rule: */
 * {
+    font-family: source-sans-pro, sans-serif;
 }
 
 /* While in selection, make the text more readable. */
@@ -13,11 +14,6 @@ p::selection:nth-of-type(3n+1) { background: #e74c3c; }
 p::selection:nth-of-type(3n+2) { background: #2ecc71; }
 p::selection:nth-of-type(3n+3) { background: #3498db; }
 
-/* Placeholder color (we may use an even lighter grey in the future): */
-body {
-    background-color: #F8F8F8;
-}
-
 /* The wrapper will position the page closer to the middle. */
 #wrapper {
     margin-top: 2.5%;
@@ -25,14 +21,10 @@ body {
     margin-right: 7.5%;
 }
 
-/* Portfolio logo size. */
-header img {
-    width: 150px;
-}
-
 /* Handling of portfolio title. */
 header h1 {
     display: inline;
+    font-family: source-sans-pro, sans-serif;
 }
 
 /* Make space between portfolio title and page content. */
@@ -40,9 +32,37 @@ header h1 {
     margin-top: 20px;
 }
 
+aside * {
+    margin-right: 5px;
+}
+
+aside img {
+    width: 95%;
+}
+
+.owner-info {
+    border-left: 5px solid #1abc9c;
+    padding-left: 10px;
+}
+
+.nav-info {
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
+}
+
 /* Sidebar navigation list. Used to navigate around the portfolio. */
 nav ul {
     padding-left: 20px;
-    list-style-type: none;
-    border-left: 3px solid #C8C8C8;
+}
+
+nav ul li a:hover {
+    color: white;
+    background-color: #3498db;
+}
+
+nav ul li a {
+    padding-left: 2px;
+    padding-right: 2px;
+    color: #3498db;
+    text-decoration: none;
 }

@@ -71,7 +71,7 @@ def main_page():
     """
     db = data.load("data.json")
     example_project = choice(data.search(db))
-    return render_template('start.html', project_data=example_project, stylesheets=['full-project.css'])
+    return render_template('start.html', project_data=example_project, stylesheets=['full-project.css', 'start.css'])
 
 
 @app.route('/project/<int:id>')
@@ -149,7 +149,7 @@ def technique_page():
     db = data.load("data.json")
     result_dict = data.get_technique_stats(db)
     sorted_dict = OrderedDict(sorted(result_dict.items(), key=lambda t: t[0].lower()))
-    return render_template('techniques.html', techniques=sorted_dict, stylesheets=['technique.css'])
+    return render_template('techniques.html', techniques=sorted_dict, stylesheets=['technique.css', 'techniques.css'])
 
 
 @app.errorhandler(404)

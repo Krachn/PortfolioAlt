@@ -4,48 +4,59 @@
     <meta charset="UTF-8">
 
     <title>{{Startpage}}</title>
-    <!-- Include standard stylesheet across all pages. Controls only the bare bones. -->
-    <link rel="stylesheet" type="text/css" href="../../static/style/elements/base.css">
+    <!-- Include standard stylesheet across all pages (controls only the bare bones): -->
+    <link rel="stylesheet" type="text/css" href="../../static/style/base.css">
     <link rel="stylesheet" type="text/css" href="../../static/style/grid.css">
-    {% for stylesheet in stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{ '../../static/style/elements/' + stylesheet }}">
+
+    <!-- Apply modular stylesheets to the current page: -->
+    {% for stylesheet in stylesheets %}<link rel="stylesheet" type="text/css" href="{{ '../../static/style/' + stylesheet }}">
     {% endfor %}
 
+    <!-- Use a fancy font: -->
+    <script src="http://use.edgefonts.net/source-sans-pro.js"></script>
 </head>
 <body>
     <div id="wrapper">
         <!-- Header of logo and blog title: -->
         <header>
+            <!-- For now.
             <img src="http://lorempixel.com/100/100" alt="The portfolio logo.">
+            -->
             <h1>Lukmiadaivs's Portfolio</h1>
         </header>
 
         <div id="content-column">
             <!-- Sidebar that goes on the left side of the page: -->
-            <aside class="col-20">
+            <aside class="col-25">
+                <!-- Picture of the blog owner: -->
+                <img src="https://media.giphy.com/media/gEGEBf7x27EdO/giphy.gif" alt="A picture of the blog owner.">
+
+                <!-- Blog information section: -->
                 <div class="owner-info">
-                    <img src="http://lorempixel.com/100/100" alt="A picture of the blog owner.">
+                    <h3>About</h3>
 
-                    <!-- Blog Owner Name -->
-                    <h2>Adam Ivarsson</h2>
-
-                    <!-- Information about the blog owner: -->
-                    <p></p>
+                    <!-- Information about the blog and/or blog owner: -->
+                    <p>I'm Adam, this is my portfolio. Take a look around!</p>
                 </div>
 
-                <nav>
-                    <ul>
-                        <li><a href="/">Startpage</a></li>
-                        <li><a href="/list">Project List</a></li>
-                        <li><a href="/techniques">Techniques</a></li>
-                    </ul>
-                </nav>
+                <!-- Page navigation section: -->
+                <div class="nav-info">
+                    <h3>Pages</h3>
+
+                    <nav>
+                        <ul>
+                            <li><a href="/">Startpage</a></li>
+                            <li><a href="/list">Project List</a></li>
+                            <li><a href="/techniques">Techniques</a></li>
+                        </ul>
+                    </nav>
+                </div>
 
             </aside>
 
             <!-- Where main content gets inserted: -->
-            <main class="col-80">
-            {% block content %} {% endblock %}
+            <main class="col-75">
+                {% block content %} {% endblock %}
             </main>
         </div>
     </div>
