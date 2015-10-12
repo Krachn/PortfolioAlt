@@ -9,9 +9,9 @@ p::selection {
 
 /* Get some colors going in this project. This will make a selection rainbow.
  * Most users won't probably notice until they select multiple paragraphs. */
-p::selection:nth-of-type(6n+1) { background: #e74c3c; }
-p::selection:nth-of-type(6n+4) { background: #2ecc71; }
-p::selection:nth-of-type(6n+5) { background: #3498db; }
+p::selection:nth-of-type(3n+1) { background: #e74c3c; }
+p::selection:nth-of-type(3n+2) { background: #2ecc71; }
+p::selection:nth-of-type(3n+3) { background: #3498db; }
 
 /* Placeholder color (we may use an even lighter grey in the future): */
 body {
