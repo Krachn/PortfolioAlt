@@ -1,0 +1,11 @@
+[class*='col-'] {
+    float: left;
+}
+
+.col-20 {
+    width: 20%;
+}
+
+.col-80 {
+    width: 80%;
+}

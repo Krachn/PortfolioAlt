@@ -21,7 +21,8 @@ body {
 /* The wrapper will position the page closer to the middle. */
 #wrapper {
     margin-top: 2.5%;
-    margin-left: 10%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
 }
 
 /* Portfolio logo size. */
@@ -37,17 +38,6 @@ header h1 {
 /* Make space between portfolio title and page content. */
 #content-column {
     margin-top: 20px;
-}
-
-/* Sidebar should have enough space between content and self. */
-aside{
-    float: left;
-    margin-right: 20px;
-}
-
-/* Sidebar image size. */
-.owner-info img {
-    width: 200px;
 }
 
 /* Sidebar navigation list. Used to navigate around the portfolio. */

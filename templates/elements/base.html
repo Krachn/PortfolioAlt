@@ -5,9 +5,10 @@
 
     <title>{{Startpage}}</title>
     <!-- Include standard stylesheet across all pages. Controls only the bare bones. -->
-    <link rel="stylesheet" type="text/css" href="../../static/style/base.css">
+    <link rel="stylesheet" type="text/css" href="../../static/style/elements/base.css">
+    <link rel="stylesheet" type="text/css" href="../../static/style/grid.css">
     {% for stylesheet in stylesheets %}
-        <link rel="stylesheet" type="text/css" href="{{ '../../static/style/' + stylesheet }}">
+        <link rel="stylesheet" type="text/css" href="{{ '../../static/style/elements/' + stylesheet }}">
     {% endfor %}
 
 </head>
@@ -21,7 +22,7 @@
 
         <div id="content-column">
             <!-- Sidebar that goes on the left side of the page: -->
-            <aside>
+            <aside class="col-20">
                 <div class="owner-info">
                     <img src="http://lorempixel.com/100/100" alt="A picture of the blog owner.">
 
@@ -43,7 +44,7 @@
             </aside>
 
             <!-- Where main content gets inserted: -->
-            <main>
+            <main class="col-80">
             {% block content %} {% endblock %}
             </main>
         </div>
