@@ -1,8 +1,5 @@
 {% extends "elements/base.html" %}
 {% block content %}
-	<h2>Error 404</h2>
-	<p>
-	Oops! Url'n du bad om ("{{ non_existent_url }}") existerar inte! <br>
-	Tryck <a href= "/">här</a> för att komma tillbaka till startsidan!
-	</p> 
-{% endblock %} 
+    <h2>Error 404</h2>
+    <p>Oops! The requested URL ("{{ non_existent_url }}") couldn't be found!</p>
+{% endblock %}
