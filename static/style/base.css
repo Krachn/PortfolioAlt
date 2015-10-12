@@ -21,6 +21,11 @@ p::selection:nth-of-type(3n+3) { background: #3498db; }
     margin-right: 7.5%;
 }
 
+header img {
+    width: 40px;
+    margin-right: 20px;
+}
+
 /* Handling of portfolio title. */
 header h1 {
     display: inline;
