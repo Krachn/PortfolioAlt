@@ -73,6 +73,24 @@ def main_page():
     example_project = choice(data.search(db))
     return render_template('main.html', project_data=example_project)
 
+@app.route('/project/<int:id>')
+def project_page(id):
+    """
+    Using the data layer, Jinja2, and the project.html template this function
+    returns a page containing information regarding the project that in the 
+    database has the specified id. If the specified project does not exist, it
+    returns the "404" page.
+
+    This function is called when the URL '/project/<int:id>' is requested.
+
+    :return: The specified projects page
+    """
+    db = data.load('data.json')
+    project = data.get_project(db,id)
+    if project is not None:
+        return render_template('project.html',project_data = project)
+    else:
+        return render_template('status_codes/404.html',non_existent_url=request.path)
 
 @app.route('/list', methods=['POST', 'GET'])
 def list_page():

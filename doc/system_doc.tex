@@ -41,8 +41,11 @@ Gets called when the URL `/` is requested. Using the datalayer, Jinja2, and the 
 \subsection{list\_page()} 
 Gets called when the URL `/list` is requested. Using the datalayer, Jinja2, and the `list.html` template this function EITHER returns the default list page (containing all the projects) OR if it has been requested using a `POST` it instead returns the list page containing a list of projects that fit the search parameters contained in the `POST` request.
 
-\subsection{technique\_page()} G
-ets called when the  URL `/techniques` is requested. Using the datalayer, Jinja2, and the `techniques.html` template this function returns the techniques page of the portfolio populated with all the techniques found in our datalayer to whoever sent the request.
+\subsection{project\_page(id)}
+Gets called when the URL `/project/<id>` is requested, where id is the id of a project. Using the data layer, Jinja2, and the project.html template this function returns a page containing information regarding the project that in the database has the specified id. If the specified project does not exist, it returns the `404` page.
+
+\subsection{technique\_page()} 
+Gets called when the  URL `/techniques` is requested. Using the datalayer, Jinja2, and the `techniques.html` template this function returns the techniques page of the portfolio populated with all the techniques found in our datalayer to whoever sent the request.
 
 All web requests and stack traces are also logged to a file on disk for easy debugging. This file contains the same type of information that you'd normally see in the console when running the server.
 
