@@ -62,7 +62,7 @@ Form Data: {form_data}
 @app.route('/')
 def main_page():
     """
-    Using the data layer, Jinja2, and the main.html template this function
+    Using the data layer, Jinja2, and the start.html template this function
     returns the main page of the portfolio to whoever sent the request.
 
     This function is called when the URL '/' is requested.
@@ -71,7 +71,8 @@ def main_page():
     """
     db = data.load("data.json")
     example_project = choice(data.search(db))
-    return render_template('main.html', project_data=example_project)
+    return render_template('start.html', project_data=example_project, stylesheets=['full-project.css'])
+
 
 @app.route('/project/<int:id>')
 def project_page(id):
@@ -86,11 +87,13 @@ def project_page(id):
     :return: The specified projects page
     """
     db = data.load('data.json')
-    project = data.get_project(db,id)
+    project = data.get_project(db, id)
     if project is not None:
-        return render_template('project.html',project_data = project)
+        return render_template('elements/project.html', project_data=project, stylesheets=['full-project.css'])
     else:
-        return render_template('status_codes/404.html',non_existent_url=request.path)
+        return render_template('status_codes/404.html', non_existent_url=request.path,
+                               stylesheets=['status_codes/404.css'])
+
 
 @app.route('/list', methods=['POST', 'GET'])
 def list_page():
@@ -123,10 +126,13 @@ def list_page():
         return render_template('list.html', project_list=search_results,
                                previous_text_search=requested_text_search or '',
                                previous_techniques=requested_technique_list,
-                               techniques=sorted(techniques.keys()))
+                               techniques=sorted(techniques.keys()),
+                               stylesheets=['project-item.css', 'search-box.css'])
 
     else:
-        return render_template('list.html', project_list=full_list, techniques=sorted(techniques.keys()))
+        return render_template('list.html', project_list=full_list,
+                               techniques=sorted(techniques.keys()),
+                               stylesheets=['project-item.css', 'search-box.css'])
 
 
 @app.route('/techniques')
@@ -143,7 +149,7 @@ def technique_page():
     db = data.load("data.json")
     result_dict = data.get_technique_stats(db)
     sorted_dict = OrderedDict(sorted(result_dict.items(), key=lambda t: t[0].lower()))
-    return render_template('techniques.html', techniques=sorted_dict)
+    return render_template('techniques.html', techniques=sorted_dict, stylesheets=['technique.css'])
 
 
 @app.errorhandler(404)
@@ -157,7 +163,7 @@ def page_not_found(e):
 
     :return: A basic 404 information page.
     """
-    return render_template("status_codes/404.html", non_existent_url=request.path)
+    return render_template("status_codes/404.html", non_existent_url=request.path, stylesheets=['status_codes/404.css'])
 
 
 if __name__ == '__main__':

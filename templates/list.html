@@ -1,10 +1,10 @@
-{% extends "base.html" %}
+{% extends "elements/base.html" %}
 {% block content %}
-    {% include 'search-box.html' %}
+    {% include 'elements/search-box.html' %}
     <h1>Results</h1>
     {% for project_data in project_list %}
         <p>
-        {% include 'project-item.html' %}
+        {% include 'elements/project-item.html' %}
         </p>
     {% endfor %}
 {% endblock %}

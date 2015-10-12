@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{Startpage}}</title>
+    <!-- Include standard stylesheet across all pages. Controls only the bare bones. -->
+    <link rel="stylesheet" type="text/css" href="../../static/style/base.css">
+    {% for stylesheet in stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ '../../static/style/' + stylesheet }}">
+    {% endfor %}
+
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Header of logo and blog title: -->
+        <header>
+            <img src="http://lorempixel.com/100/100" alt="The portfolio logo.">
+            <h1>Lukmiadaivs's Portfolio</h1>
+        </header>
+
+        <div id="content-column">
+            <!-- Sidebar that goes on the left side of the page: -->
+            <aside>
+                <div class="owner-info">
+                    <img src="http://lorempixel.com/100/100" alt="A picture of the blog owner.">
+
+                    <!-- Blog Owner Name -->
+                    <h2>Adam Ivarsson</h2>
+
+                    <!-- Information about the blog owner: -->
+                    <p></p>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="/">Startpage</a></li>
+                        <li><a href="/list">Project List</a></li>
+                        <li><a href="/techniques">Techniques</a></li>
+                    </ul>
+                </nav>
+
+            </aside>
+
+            <!-- Where main content gets inserted: -->
+            <main>
+            {% block content %} {% endblock %}
+            </main>
+        </div>
+    </div>
+</body>
+</html>

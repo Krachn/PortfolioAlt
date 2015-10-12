@@ -1,0 +1,47 @@
+/* Test rule: */
+* {
+}
+
+/* Placeholder color (we may use an even lighter grey in the future): */
+body {
+    background-color: #F8F8F8;
+}
+
+/* The wrapper will position the page closer to the middle. */
+#wrapper {
+    margin-top: 2.5%;
+    margin-left: 10%;
+}
+
+/* Portfolio logo size. */
+header img {
+    width: 150px;
+}
+
+/* Handling of portfolio title. */
+header h1 {
+    display: inline;
+}
+
+/* Make space between portfolio title and page content. */
+#content-column {
+    margin-top: 20px;
+}
+
+/* Sidebar should have enough space between content and self. */
+aside{
+    float: left;
+    margin-right: 20px;
+}
+
+/* Sidebar image size. */
+.owner-info img {
+    width: 200px;
+}
+
+/* Sidebar navigation list. Used to navigate around the portfolio. */
+nav ul {
+    padding-left: 20px;
+    list-style-type: none;
+    border-left: 3px solid #C8C8C8;
+}
