@@ -1,3 +1,5 @@
+/* A simple grid system. */
+
 [class*='col-'] {
     float: left;
 }
