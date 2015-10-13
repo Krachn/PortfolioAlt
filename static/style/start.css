@@ -1,3 +1,4 @@
+/* Remove default margin and extra line height space to align the title with the sidebar. */
 main > h1 {
     margin: 0;
     line-height: 90%;
