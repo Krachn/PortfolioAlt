@@ -166,8 +166,8 @@ def page_not_found(e):
 
 
 if __name__ == '__main__':
-	file_handler = FileHandler(log_file)
-	file_handler.setLevel(logging.INFO)
-	app.logger.addHandler(file_handler)
-	app.logger.setLevel(logging.INFO)
-	app.run(debug=False)
+    file_handler = FileHandler(log_file)
+    file_handler.setLevel(logging.INFO)
+    app.logger.addHandler(file_handler)
+    app.logger.setLevel(logging.INFO)
+    app.run(debug=False)
