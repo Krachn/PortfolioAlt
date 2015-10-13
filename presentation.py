@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 import data
 import logging
 from logging import FileHandler
@@ -9,11 +10,11 @@ from flask import request
 from random import choice
 from collections import OrderedDict
 
-from pprint import pprint
 
 app = Flask(__name__)
 
 log_file = "server.log"
+
 
 @app.before_request
 def request_logging():
