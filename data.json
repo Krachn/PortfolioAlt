@@ -171,7 +171,7 @@
         "project_name": "Tärningssimulator",
         "course_id": "TDPTärning",
         "end_date": "2016-10-20",
-        "project_no": 3,
+        "project_no": 99,
         "big_image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Dados_4_a_20_caras.jpg"
     },
     {
@@ -251,7 +251,7 @@
         "project_name": "Ljusblå Tavla",
         "course_id": "TDP000",
         "end_date": "2015-10-22",
-        "project_no": 3,
+        "project_no": 176,
         "big_image": "static/images/hamsterfighter_small.jpg"
     },
     {
@@ -272,7 +272,7 @@
         "project_name": "Hamsterfighter",
         "course_id": "TDP002",
         "end_date": "2015-09-15",
-        "project_no": 4,
+        "project_no": 78,
         "big_image": "static/images/hamsterfighter.jpg"
     },
     {
@@ -302,7 +302,7 @@
         "project_name": "Jobscript",
         "course_id": "TDP453",
         "end_date": "2015-03-14",
-        "project_no": 3,
+        "project_no": 83,
         "big_image": "http://www.global-workplace.com/wp-content/uploads/2014/03/15468283-cv-curriculum-vitae-concetto-di-tag-cloud-parola-su-sfondo-bianco.jpg"
     },
     {
@@ -327,7 +327,7 @@
         "project_name": "Plattformarspel",
         "course_id": "TDP006",
         "end_date": "2015-09-22",
-        "project_no": 4,
+        "project_no": 84,
         "big_image": "http://indiegames.com/walker%20new.png"
     },
     {
@@ -385,7 +385,7 @@
         "project_name": "Division by zero",
         "course_id": "TDP000",
         "end_date": "0000-00-00",
-        "project_no": 0,
+        "project_no": 79,
         "big_image": "http://static.fjcdn.com/pictures/Portals_78710e_773590.jpg"
     },
     {
@@ -462,7 +462,7 @@
         "project_name": "Projekt test",
         "course_id": "TDP003",
         "end_date": "2015-09-22",
-        "project_no": 4,
+        "project_no": 80,
         "big_image": ""
     },
     {
@@ -486,7 +486,7 @@
         "project_name": "Jamjarjet",
         "course_id": "Gymnasie",
         "end_date": "2015-03-18",
-        "project_no": 3,
+        "project_no": 86,
         "big_image": "https://upload.wikimedia.org/wikipedia/commons/1/15/Jar-jar-jet.jpg"
     },
     {
@@ -512,7 +512,7 @@
         "project_name": "Space Invader Kopia",
         "course_id": "TDP005",
         "end_date": "2014-12-18",
-        "project_no": 3,
+        "project_no": 81,
         "big_image": "http://gamefabrique.com/storage/screenshots/snes/space-invaders-05.png"
     },
     {
@@ -538,7 +538,7 @@
         "project_name": "Tetris Kopia",
         "course_id": "TDP005",
         "end_date": "2015-12-23",
-        "project_no": 4,
+        "project_no": 186,
         "big_image": "https://thenypost.files.wordpress.com/2014/10/tetris.jpg"
     },
     {
