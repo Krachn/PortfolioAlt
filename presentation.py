@@ -171,4 +171,4 @@ if __name__ == '__main__':
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
-    app.run(debug=False)
+    app.run(debug=True)

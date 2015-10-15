@@ -1,7 +1,14 @@
 <article>
     <h1>{{project_data.project_name}}</h1>
-    <img src={{ project_data.big_image }} alt="Project Image" style="width:300px;height:300px;">
-    <p>
-        {{project_data.long_description}}
-    <p>
+    <img src={{ project_data.big_image }} alt="Project Image" style="width:300px;height:300px;"> <br>
+	<p>
+		<i> Started {{project_data.start_date}} and ended {{project_data.end_date}}.</i><br>
+    	<i>Done in the course {{project_data.course_name}}</i><br>
+		Techniques used:
+		{% for technique in project_data.techniques_used %}
+			{{technique}}{% if not (loop.last or loop.length-1 == loop.index) %},{% endif %}
+			{% if loop.length-1 == loop.index %} and {% endif %}
+		{% endfor %}.
+	<p>
+    <p>{{project_data.long_description}}</p> 
 </article>
