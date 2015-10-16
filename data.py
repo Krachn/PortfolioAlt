@@ -77,6 +77,9 @@ def search_parameter_in_field(project, fields, search_parameter):
                     return True
             except:
                 pass
+        elif isinstance(field_value, list):
+            if search_parameter.lower() in field_value:
+                return True
     return False
 
 
