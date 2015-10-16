@@ -14,7 +14,10 @@ from collections import OrderedDict
 app = Flask(__name__)
 
 log_file = "server.log"
-
+sortable_fields = {'start_date':'Starting date',
+                   'end_date':'End date',
+                   'project_name':'Project name',
+                   'project_no':'Project ID'}
 
 @app.before_request
 def request_logging():
@@ -116,21 +119,26 @@ def list_page():
     if request.method == 'POST':
         requested_technique_list = request.form.getlist('technique')
         requested_order = request.form['sort_order']
+        requested_sort_field = request.form['sort_field']
         requested_text_search = request.form['text_search']
         if requested_text_search == '':
             requested_text_search = None
         search_results = data.search(full_list, techniques=requested_technique_list,
                                      sort_order=requested_order,
+                                     sort_by=requested_sort_field,
                                      search=requested_text_search)
 
-        return render_template('list.html', project_list=search_results,
+        return render_template('list.html', sortable_fields=sortable_fields, 
+                               project_list=search_results,
                                previous_text_search=requested_text_search or '',
                                previous_techniques=requested_technique_list,
+                               previous_sort_field=requested_sort_field,
                                techniques=sorted(techniques.keys()),
                                stylesheets=['project-item.css', 'search-box.css'])
 
     else:
-        return render_template('list.html', project_list=full_list,
+        return render_template('list.html', sortable_fields=sortable_fields,  
+                               project_list=full_list,
                                techniques=sorted(techniques.keys()),
                                stylesheets=['project-item.css', 'search-box.css'])
 

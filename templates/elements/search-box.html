@@ -24,6 +24,14 @@
             <option value="desc">Descending</option>
         </select>
     </div>
+    <div class="sort_field">
+        <label for="sort_field">Sort field:</label>
+        <select id="sort_field" name="sort_field">
+            {% for field in sortable_fields.keys() %}
+                <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
+            {% endfor %}
+        </select>
+    </div>
 
     <label for="text_search">Text Search:</label>
     <input id="text_search" type="text" name="text_search" value="{{ previous_text_search }}">
