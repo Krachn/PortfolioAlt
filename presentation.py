@@ -10,6 +10,7 @@ from flask import request
 from random import choice
 from collections import OrderedDict
 
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -69,7 +70,7 @@ Form Data: {form_data}
                    form_data=str(dict((key, request.form.getlist(key)) for key in request.form.keys()))
                    )
     )
-    return render_template('status_codes/500.html')
+    return render_template('status_codes/500.html', page_name='Error Page')
 
 
 @app.route('/')
@@ -84,7 +85,8 @@ def main_page():
     """
     db = data.load("data.json")
     example_project = choice(data.search(db))
-    return render_template('start.html', project_data=example_project, stylesheets=['full-project.css', 'start.css'])
+    return render_template('start.html', page_name='Homepage',
+                           project_data=example_project, stylesheets=['full-project.css', 'start.css'])
 
 
 @app.route('/project/<int:id>')
@@ -101,10 +103,12 @@ def project_page(id):
     """
     db = data.load('data.json')
     project = data.get_project(db, id)
+    pprint(project)
     if project is not None:
-        return render_template('elements/project.html', project_data=project, stylesheets=['full-project.css'])
+        return render_template('elements/project.html', page_name='Project', project_data=project,
+                               stylesheets=['full-project.css'])
     else:
-        return render_template('status_codes/404.html', non_existent_url=request.path,
+        return render_template('status_codes/404.html', page_name='Project', non_existent_url=request.path,
                                stylesheets=['status_codes/404.css'])
 
 
@@ -141,7 +145,8 @@ def list_page():
                                      sort_by=requested_sort_field,
                                      search=requested_text_search)
 
-        return render_template('list.html', sortable_fields=sortable_fields, 
+        return render_template('list.html', page_name='List Page',
+                               sortable_fields=sortable_fields,
                                searchable_fields=searchable_fields,
                                project_list=search_results,
                                previous_search_fields=requested_search_fields_list or [],
@@ -152,7 +157,8 @@ def list_page():
                                stylesheets=['list.css', 'project-item.css', 'search-box.css'])
 
     else:
-        return render_template('list.html', sortable_fields=sortable_fields,
+        return render_template('list.html', page_name='List Page',
+                               sortable_fields=sortable_fields,
                                searchable_fields=searchable_fields or [],  
                                project_list=full_list,
                                techniques=sorted(techniques.keys()),
@@ -173,7 +179,8 @@ def technique_page():
     db = data.load("data.json")
     result_dict = data.get_technique_stats(db)
     sorted_dict = OrderedDict(sorted(result_dict.items(), key=lambda t: t[0].lower()))
-    return render_template('techniques.html', techniques=sorted_dict, stylesheets=['technique.css', 'techniques.css'])
+    return render_template('techniques.html', page_name='Techniques',
+                           techniques=sorted_dict, stylesheets=['technique.css', 'techniques.css'])
 
 
 @app.errorhandler(404)
@@ -187,7 +194,8 @@ def page_not_found(e):
 
     :return: A basic 404 information page.
     """
-    return render_template("status_codes/404.html", non_existent_url=request.path, stylesheets=['status_codes/404.css'])
+    return render_template("status_codes/404.html", page_name='Error Page',
+                           non_existent_url=request.path, stylesheets=['status_codes/404.css'])
 
 
 if __name__ == '__main__':

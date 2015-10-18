@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>{{Startpage}}</title>
+    <title>{% if page_name %}{{ page_name }}{% endif %}</title>
     <!-- Include standard stylesheet across all pages (controls only the bare bones): -->
     <link rel="stylesheet" type="text/css" href="../../static/style/base.css">
     <link rel="stylesheet" type="text/css" href="../../static/style/grid.css">

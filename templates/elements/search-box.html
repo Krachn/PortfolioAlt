@@ -23,7 +23,7 @@
             <label for="sort-field">Field to Sort:</label>
             <select id="sort-field" name="sort_field">
                 {% for field in sortable_fields.keys() %}
-                    <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
+                    <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{% endif %}>{{ sortable_fields[field] }}</option>
                 {% endfor %}
             </select>
         </div>
@@ -66,7 +66,7 @@
         <ul>
             {% for technique in techniques %}
                 <li>
-                    <input id="{{ technique }}" type="checkbox" name="technique" value="{{ technique }}"  {% if technique in previous_techniques %}checked{%endif%}>
+                    <input id="{{ technique }}" type="checkbox" name="technique" value="{{ technique }}"  {% if technique in previous_techniques %}checked{% endif %}>
                     <label for="{{ technique }}">{{ technique }}</label>
                 </li>
             {% endfor %}
