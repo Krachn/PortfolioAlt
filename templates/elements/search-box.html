@@ -20,7 +20,7 @@
         </div>
 
         <div class="sort-field">
-            <label for="sort_field">Sort Field:</label>
+            <label for="sort_field">Field to Sort:</label>
             <select id="sort_field" name="sort_field">
                 {% for field in sortable_fields.keys() %}
                     <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
@@ -41,7 +41,7 @@
     <div class="form-group" id="field-search">
 
         <!-- Form group title: -->
-        <h4>Fields for free text search</h4>
+        <h4>Fields to search in:</h4>
 
         <!-- Form group content: -->
         <ul>
@@ -58,7 +58,7 @@
     <div class="form-group" id="tech-search">
 
         <!-- Form group title: -->
-        <h4>Techniques</h4>
+        <h4>Project must have used these techniques:</h4>
 
         <!-- Form group content: -->
         <ul>
