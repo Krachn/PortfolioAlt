@@ -2,10 +2,7 @@
 {% block content %}
     {% include 'elements/search-box.html' %}
     <h1>Results</h1>
-    {% if not project_list %} <b> No projects found! </b> {% endif %}
-    {% for project_data in project_list %}
-        <p>
-        {% include 'elements/project-item.html' %}
-        </p>
+    {% if not project_list %}<b> No projects found!</b>{% endif %}
+    {% for project_data in project_list %}{% include 'elements/project-item.html' %}
     {% endfor %}
 {% endblock %}

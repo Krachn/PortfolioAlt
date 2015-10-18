@@ -1,0 +1,15 @@
+/* Article image placeholder. */
+article img { width: 64px; }
+
+/* Project title styling. */
+article a {
+    padding-left: 1px;
+    padding-right: 2px;
+    text-decoration: none;
+    color: #3498db;
+}
+
+article a:hover {
+    color: white;
+    background-color: #3498db;
+}
