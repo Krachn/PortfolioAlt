@@ -1,8 +1,16 @@
 <form class="search" action="/list" method="POST">
 
+    <!-- Form name: -->
     <h3>Search</h3>
 
+    <!--
+        Form content is divided up into sections called "form groups". These serve
+        the purpose of making it easier to style the over-all form.
+    -->
+
     <div class="form-group">
+
+        <!-- Form group content: -->
 
         <div class="text-search">
             <label for="text_search">Text Search:</label>
@@ -32,7 +40,10 @@
 
     <div class="form-group">
 
+        <!-- Form group title: -->
         <h4>Fields for free text search</h4>
+
+        <!-- Form group content: -->
         <ul>
             {% for field in searchable_fields.keys() %}
                 <li>
@@ -45,7 +56,11 @@
     </div>
 
     <div class="form-group">
+
+        <!-- Form group title: -->
         <h4>Techniques</h4>
+
+        <!-- Form group content: -->
         <ul>
             {% for technique in techniques %}
                 <li>
@@ -54,6 +69,7 @@
                 </li>
             {% endfor %}
         </ul>
+
     </div>
 
 </form>
