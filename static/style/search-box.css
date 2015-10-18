@@ -14,6 +14,9 @@
 /* Remove default title margin. */
 .form-group > h4 { margin: 0; }
 
+/* Style the title description. */
+.form-group > p { display: inline; color: gray; }
+
 /* Override default list margin. */
 .form-group ul { margin: 10px 0 0; }
 
