@@ -129,7 +129,7 @@ def list_page():
     if request.method == 'POST':
         requested_technique_list = request.form.getlist('technique')
         requested_search_fields_list = request.form.getlist('search_fields')
-        if(requested_search_fields_list == []):requested_search_fields_list = None
+        if not requested_search_fields_list: requested_search_fields_list = None
         requested_order = request.form['sort_order']
         requested_sort_field = request.form['sort_field']
         requested_text_search = request.form['text_search']
@@ -149,14 +149,14 @@ def list_page():
                                previous_techniques=requested_technique_list,
                                previous_sort_field=requested_sort_field,
                                techniques=sorted(techniques.keys()),
-                               stylesheets=['project-item.css', 'search-box.css'])
+                               stylesheets=['list.css', 'project-item.css', 'search-box.css'])
 
     else:
         return render_template('list.html', sortable_fields=sortable_fields,
                                searchable_fields=searchable_fields or [],  
                                project_list=full_list,
                                techniques=sorted(techniques.keys()),
-                               stylesheets=['project-item.css', 'search-box.css'])
+                               stylesheets=['list.css', 'project-item.css', 'search-box.css'])
 
 
 @app.route('/techniques')
