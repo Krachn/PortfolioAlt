@@ -2,13 +2,20 @@
  * In this instance it differs because you can interact with it. */
 
 /* Inner padding and a distinct background color. */
-.search { padding: 15px 20px 10px; background-color: #ecf0f1; }
+.search { padding: 15px 20px; background-color: #ecf0f1; }
 
 /* Remove default margin and dim the text color. */
 .search > h3 { margin: 0; color: #34495e; }
 
 /* Separate each form group. */
 .form-group { margin-top: 20px; }
+.form-group:first-of-type { margin-top: 15px; }
+
+/* Remove default title margin. */
+.form-group > h4 { margin: 0; }
+
+/* Override default list margin. */
+.form-group ul { margin: 10px 0 0; }
 
 /* Display fast search inputs on the same line. */
 #fast-search div { display: inline; margin-left: 10px; }
