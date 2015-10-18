@@ -1,6 +1,6 @@
 <article>
     <h1>{{project_data.project_name}}</h1>
-    <img src={{ project_data.big_image }} alt="Project Image" style="width:300px;height:300px;"> <br>
+    <img src={{ project_data.big_image }} alt="Project Image" onError="this.src='static/images/300placeholder.png';" style="width:300px;height:300px;"> <br>
 	<p>
 		<i> Started {{project_data.start_date}} and ended {{project_data.end_date}}.</i><br>
     	<i>Done in the course {{project_data.course_name}}</i><br>
