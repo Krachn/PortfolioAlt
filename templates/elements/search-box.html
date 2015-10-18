@@ -1,6 +1,6 @@
 <form class="search" action="/list" method="POST">
     <h3>Search</h3>
-
+    <h4>Techniques</h4>
     <ul>
         {% for technique in techniques %}
             {% if technique in previous_techniques %}
@@ -16,6 +16,16 @@
             {% endif %}
         {% endfor %}
     </ul>
+    <h4>Fields for free text search</h4>
+    <ul>
+        {% for field in searchable_fields.keys() %}
+            <li>
+                <input type="checkbox" name="search_fields" value="{{field}}" {% if field in previous_search_fields %}checked{%endif%}>
+                <span>{{ searchable_fields[field] }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+
 
     <div class="sort-order">
         <label for="sort_order">Sort Order:</label>

@@ -19,6 +19,16 @@ sortable_fields = {'start_date':'Starting date',
                    'project_name':'Project name',
                    'project_no':'Project ID'}
 
+searchable_fields = {'short_description':'Short description',
+                    'course_name':'Course name',
+                    'long_description':"Long description",
+                    'group_size': "Group size",
+                    'academic_credits' : "Academic credits",
+                    'techniques_used':"Techniques used",
+                    'project_name':'Project name',
+                    'course_id':"Course ID"}
+
+
 @app.before_request
 def request_logging():
     """
@@ -118,18 +128,23 @@ def list_page():
 
     if request.method == 'POST':
         requested_technique_list = request.form.getlist('technique')
+        requested_search_fields_list = request.form.getlist('search_fields')
+        if(requested_search_fields_list == []):requested_search_fields_list = None
         requested_order = request.form['sort_order']
         requested_sort_field = request.form['sort_field']
         requested_text_search = request.form['text_search']
         if requested_text_search == '':
             requested_text_search = None
         search_results = data.search(full_list, techniques=requested_technique_list,
+                                     search_fields = requested_search_fields_list,
                                      sort_order=requested_order,
                                      sort_by=requested_sort_field,
                                      search=requested_text_search)
 
         return render_template('list.html', sortable_fields=sortable_fields, 
+                               searchable_fields=searchable_fields,
                                project_list=search_results,
+                               previous_search_fields=requested_search_fields_list,
                                previous_text_search=requested_text_search or '',
                                previous_techniques=requested_technique_list,
                                previous_sort_field=requested_sort_field,
@@ -137,7 +152,8 @@ def list_page():
                                stylesheets=['project-item.css', 'search-box.css'])
 
     else:
-        return render_template('list.html', sortable_fields=sortable_fields,  
+        return render_template('list.html', sortable_fields=sortable_fields,
+                               searchable_fields=searchable_fields,  
                                project_list=full_list,
                                techniques=sorted(techniques.keys()),
                                stylesheets=['project-item.css', 'search-box.css'])
