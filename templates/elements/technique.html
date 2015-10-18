@@ -1,0 +1,8 @@
+<div class="technique">
+    <h2>{{ technique_name }}</h2>
+    <ul>
+        {% for project_dict in projects_list %}
+            <li><a href="/project/{{ project_dict.id }}">{{ project_dict.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

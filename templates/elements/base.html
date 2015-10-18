@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{Startpage}}</title>
+    <!-- Include standard stylesheet across all pages (controls only the bare bones): -->
+    <link rel="stylesheet" type="text/css" href="../../static/style/base.css">
+    <link rel="stylesheet" type="text/css" href="../../static/style/grid.css">
+
+    <!-- Apply modular stylesheets to the current page: -->
+    {% for stylesheet in stylesheets %}<link rel="stylesheet" type="text/css" href="{{ '../../static/style/' + stylesheet }}">
+    {% endfor %}
+
+    <!-- Use a fancy font: -->
+    <script src="http://use.edgefonts.net/source-sans-pro.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Header of logo and blog title: -->
+        <header>
+            <img src="http://megaicons.net/static/img/icons_sizes/8/178/512/kitchen-fish-icon.png" alt="The portfolio logo.">
+            <h1>Lukmiadaivs's Portfolio</h1>
+        </header>
+
+        <div id="content-column">
+            <!-- Sidebar that goes on the left side of the page: -->
+            <aside class="col-25">
+                <!-- Picture of the blog owner: -->
+                <img src="https://media.giphy.com/media/gEGEBf7x27EdO/giphy.gif" alt="A picture of the blog owner.">
+
+                <!-- Blog information section: -->
+                <div class="owner-info">
+                    <h3>About</h3>
+
+                    <!-- Information about the blog and/or blog owner: -->
+                    <p>I'm Lukmiadaivs, this is my portfolio. Take a look around!</p>
+                </div>
+
+                <!-- Page navigation section: -->
+                <div class="nav-info">
+                    <h3>Pages</h3>
+
+                    <nav>
+                        <ul>
+                            <li><a href="/">Startpage</a></li>
+                            <li><a href="/list">Project List</a></li>
+                            <li><a href="/techniques">Techniques</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </aside>
+
+            <!-- Where main content gets inserted: -->
+            <main class="col-75">
+                {% block content %} {% endblock %}
+            </main>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<form class="search" action="/list" method="POST">
+    <h3>Search</h3>
+
+    <ul>
+        {% for technique in techniques %}
+            {% if technique in previous_techniques %}
+                <li>
+                    <input type="checkbox" name="technique" value="{{ technique }}" checked>
+                    <span>{{ technique }}</span>
+                </li>
+            {% else %}
+                <li>
+                    <input type="checkbox" name="technique" value={{ technique }}>
+                    <span>{{ technique }}</span>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <div class="sort-order">
+        <label for="sort_order">Sort Order:</label>
+        <select id="sort_order" name="sort_order">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </div>
+    <div class="sort_field">
+        <label for="sort_field">Sort field:</label>
+        <select id="sort_field" name="sort_field">
+            {% for field in sortable_fields.keys() %}
+                <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <label for="text_search">Text Search:</label>
+    <input id="text_search" type="text" name="text_search" value="{{ previous_text_search }}">
+
+    <input type="submit" value="Search">
+</form>

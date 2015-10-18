@@ -1,0 +1,13 @@
+/* A simple grid system. */
+
+[class*='col-'] {
+    float: left;
+}
+
+.col-25 {
+    width: 25%;
+}
+
+.col-75 {
+    width: 75%;
+}

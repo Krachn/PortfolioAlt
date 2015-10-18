@@ -1,0 +1,71 @@
+/* Website-wide font. */
+* {
+    font-family: source-sans-pro, sans-serif;
+}
+
+/* While in selection, make the text more readable. */
+p::selection {
+    color: white;
+}
+
+/* Get some colors going in this project. This will make a selection rainbow.
+ * Most users won't probably notice until they select multiple paragraphs. */
+p::selection:nth-of-type(3n+1) { background: #e74c3c; }
+p::selection:nth-of-type(3n+2) { background: #2ecc71; }
+p::selection:nth-of-type(3n+3) { background: #3498db; }
+
+/* The wrapper will position the page closer to the middle. */
+#wrapper {
+    margin-top: 2.5%;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+}
+
+/* Header image looks bad if it's big. Keep it small and use spacing. */
+header img {
+    width: 40px;
+    margin-right: 20px;
+}
+
+/* The portfolio title should go on the same line as the header image. */
+header h1 {
+    display: inline;
+}
+
+/* Make space between portfolio title and page content. */
+#content-column {
+    margin-top: 20px;
+}
+
+/* Make sure there is enough space between the sidebar and the main content. */
+aside * {
+    margin-right: 5px;
+}
+
+/* The sidebar image should be about the same width as the sidebar, but not quite. */
+aside img {
+    width: 95%;
+}
+
+/* Make the sidebar prettier with a splash of color. */
+.owner-info { border-left: 5px solid #1abc9c; padding-left: 10px; }
+.nav-info   { border-left: 5px solid #3498db; padding-left: 10px; }
+
+/* Sidebar navigation list. Used to navigate around the portfolio. */
+nav ul {
+    padding-left: 20px;
+}
+
+/* More color on hover. */
+nav ul li a:hover {
+    color: white;
+    background-color: #3498db;
+}
+
+/* Let's not use that ugly default link styling. */
+nav ul li a {
+    padding-left: 2px;
+    padding-right: 2px;
+    color: #3498db;
+    text-decoration: none;
+}
