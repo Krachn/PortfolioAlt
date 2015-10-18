@@ -13,15 +13,15 @@
         <!-- Form group content: -->
 
         <div class="text-search">
-            <label for="text_search">Text Search:</label>
-            <input id="text_search" type="text" name="text_search" value="{{ previous_text_search }}">
+            <label for="text-search">Text Search:</label>
+            <input id="text-search" type="text" name="text_search" value="{{ previous_text_search }}">
 
             <input type="submit" value="Search">
         </div>
 
         <div class="sort-field">
-            <label for="sort_field">Field to Sort:</label>
-            <select id="sort_field" name="sort_field">
+            <label for="sort-field">Field to Sort:</label>
+            <select id="sort-field" name="sort_field">
                 {% for field in sortable_fields.keys() %}
                     <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
                 {% endfor %}
@@ -29,8 +29,8 @@
         </div>
 
         <div class="sort-order">
-            <label for="sort_order">Sort Order:</label>
-            <select id="sort_order" name="sort_order">
+            <label for="sort-order">Sort Order:</label>
+            <select id="sort-order" name="sort_order">
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
             </select>
@@ -48,8 +48,8 @@
         <ul>
             {% for field in searchable_fields.keys() %}
                 <li>
-                    <input type="checkbox" name="search_fields" value="{{field}}" {% if field in previous_search_fields %}checked{%endif%}>
-                    <span>{{ searchable_fields[field] }}</span>
+                    <input id="{{ field }}" type="checkbox" name="search_fields" value="{{ field }}" {% if field in previous_search_fields %}checked{% endif %}>
+                    <label for="{{ field }}">{{ searchable_fields[field] }}</label>
                 </li>
             {% endfor %}
         </ul>
@@ -66,8 +66,8 @@
         <ul>
             {% for technique in techniques %}
                 <li>
-                    <input type="checkbox" name="technique" value="{{ technique }}"  {% if technique in previous_techniques %}checked{%endif%}>
-                    <span>{{ technique }}</span>
+                    <input id="{{ technique }}" type="checkbox" name="technique" value="{{ technique }}"  {% if technique in previous_techniques %}checked{%endif%}>
+                    <label for="{{ technique }}">{{ technique }}</label>
                 </li>
             {% endfor %}
         </ul>
