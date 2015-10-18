@@ -5,7 +5,7 @@
 .search { padding: 15px 20px; background-color: #ecf0f1; }
 
 /* Remove default margin and dim the text color. */
-.search > h3 { margin: 0; color: #34495e; }
+.search > h2 { margin: 0; color: #34495e; }
 
 /* Separate each form group. */
 .form-group { margin-top: 20px; }
