@@ -48,8 +48,9 @@ aside img {
 }
 
 /* Make the sidebar prettier with a splash of color. */
-.owner-info { border-left: 5px solid #1abc9c; padding-left: 10px; }
-.nav-info   { border-left: 5px solid #3498db; padding-left: 10px; }
+.owner-info { padding-left: 10px; border-left: 5px solid #1abc9c; }
+.nav-info { padding-left: 10px; border-left: 5px solid #3498db; }
+.owner-info:hover, .nav-info:hover { border-left-width: 6px; }
 
 /* Sidebar navigation list. Used to navigate around the portfolio. */
 nav ul {
