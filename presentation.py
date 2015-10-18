@@ -144,7 +144,7 @@ def list_page():
         return render_template('list.html', sortable_fields=sortable_fields, 
                                searchable_fields=searchable_fields,
                                project_list=search_results,
-                               previous_search_fields=requested_search_fields_list,
+                               previous_search_fields=requested_search_fields_list or [],
                                previous_text_search=requested_text_search or '',
                                previous_techniques=requested_technique_list,
                                previous_sort_field=requested_sort_field,
@@ -153,7 +153,7 @@ def list_page():
 
     else:
         return render_template('list.html', sortable_fields=sortable_fields,
-                               searchable_fields=searchable_fields,  
+                               searchable_fields=searchable_fields or [],  
                                project_list=full_list,
                                techniques=sorted(techniques.keys()),
                                stylesheets=['project-item.css', 'search-box.css'])
