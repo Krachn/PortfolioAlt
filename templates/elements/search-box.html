@@ -8,7 +8,7 @@
         the purpose of making it easier to style the over-all form.
     -->
 
-    <div class="form-group">
+    <div class="form-group" id="fast-search">
 
         <!-- Form group content: -->
 
@@ -20,7 +20,7 @@
         </div>
 
         <div class="sort-field">
-            <label for="sort_field">Sort field:</label>
+            <label for="sort_field">Sort Field:</label>
             <select id="sort_field" name="sort_field">
                 {% for field in sortable_fields.keys() %}
                     <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
@@ -38,7 +38,7 @@
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="field-search">
 
         <!-- Form group title: -->
         <h4>Fields for free text search</h4>
@@ -55,7 +55,7 @@
 
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="tech-search">
 
         <!-- Form group title: -->
         <h4>Techniques</h4>

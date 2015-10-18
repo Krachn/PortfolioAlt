@@ -1,35 +1,19 @@
 /* The search box needs to look different since to make it apparent that it differs from other elements.
  * In this instance it differs because you can interact with it. */
-.search {
-    background-color: #ecf0f1;
-    padding: 5px 10px;
-}
+
+/* Inner padding and a distinct background color. */
+.search { padding: 15px 20px 10px; background-color: #ecf0f1; }
 
 /* Remove default margin and dim the text color. */
-.search h3 {
-    color: #34495e;
-    margin: 0;
-}
+.search > h3 { margin: 0; color: #34495e; }
 
-/* Align the sort order box. */
-.sort-order {
-    width: 30%;
-    float: left;
-}
+/* Separate each form group. */
+.form-group { margin-top: 20px; }
 
-/* Create spacing in between the search title and the actual technique list. */
-.search ul {
-    margin-top: 10px;
-}
+/* Display fast search inputs on the same line. */
+#fast-search div { display: inline; margin-left: 10px; }
+#fast-search div:first-child { margin-left: 0; }
 
-/* Remove default padding and default styling. */
-.search ul {
-    padding-left: 0;
-    list-style-type: none;
-}
-
-/* Treat list items as inline blocks with a width to align them. */
-.search ul li {
-    display: inline-block;
-    width: 20%;
-}
+/* Display checkbox groups on a grid. */
+#field-search ul, #tech-search ul { padding-left: 0; list-style-type: none; }
+#field-search ul li, #tech-search ul li { display: inline-block; width: 20%; }
