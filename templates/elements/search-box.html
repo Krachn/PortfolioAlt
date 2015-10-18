@@ -1,50 +1,66 @@
 <form class="search" action="/list" method="POST">
+
     <h3>Search</h3>
-    <h4>Techniques</h4>
-    <ul>
-        {% for technique in techniques %}
-            {% if technique in previous_techniques %}
-                <li>
-                    <input type="checkbox" name="technique" value="{{ technique }}" checked>
-                    <span>{{ technique }}</span>
-                </li>
-            {% else %}
-                <li>
-                    <input type="checkbox" name="technique" value={{ technique }}>
-                    <span>{{ technique }}</span>
-                </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-    <h4>Fields for free text search</h4>
-    <ul>
-        {% for field in searchable_fields.keys() %}
-            <li>
-                <input type="checkbox" name="search_fields" value="{{field}}" {% if field in previous_search_fields %}checked{%endif%}>
-                <span>{{ searchable_fields[field] }}</span>
-            </li>
-        {% endfor %}
-    </ul>
 
+    <div class="form-group">
 
-    <div class="sort-order">
-        <label for="sort_order">Sort Order:</label>
-        <select id="sort_order" name="sort_order">
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
-        </select>
+        <div class="text-search">
+            <label for="text_search">Text Search:</label>
+            <input id="text_search" type="text" name="text_search" value="{{ previous_text_search }}">
+
+            <input type="submit" value="Search">
+        </div>
+
+        <div class="sort-field">
+            <label for="sort_field">Sort field:</label>
+            <select id="sort_field" name="sort_field">
+                {% for field in sortable_fields.keys() %}
+                    <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="sort-order">
+            <label for="sort_order">Sort Order:</label>
+            <select id="sort_order" name="sort_order">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+        </div>
+
     </div>
-    <div class="sort_field">
-        <label for="sort_field">Sort field:</label>
-        <select id="sort_field" name="sort_field">
-            {% for field in sortable_fields.keys() %}
-                <option value="{{field}}" {% if previous_sort_field == field %}selected="selected"{%endif%}>{{ sortable_fields[field] }}</option>
+
+    <div class="form-group">
+
+        <h4>Fields for free text search</h4>
+        <ul>
+            {% for field in searchable_fields.keys() %}
+                <li>
+                    <input type="checkbox" name="search_fields" value="{{field}}" {% if field in previous_search_fields %}checked{%endif%}>
+                    <span>{{ searchable_fields[field] }}</span>
+                </li>
             {% endfor %}
-        </select>
+        </ul>
+
     </div>
 
-    <label for="text_search">Text Search:</label>
-    <input id="text_search" type="text" name="text_search" value="{{ previous_text_search }}">
+    <div class="form-group">
+        <h4>Techniques</h4>
+        <ul>
+            {% for technique in techniques %}
+                {% if technique in previous_techniques %}
+                    <li>
+                        <input type="checkbox" name="technique" value="{{ technique }}" checked>
+                        <span>{{ technique }}</span>
+                    </li>
+                {% else %}
+                    <li>
+                        <input type="checkbox" name="technique" value={{ technique }}>
+                        <span>{{ technique }}</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
 
-    <input type="submit" value="Search">
 </form>
